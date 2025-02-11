@@ -1,69 +1,68 @@
-﻿int liczba = 12344154;
-string liczbaDoZnaku = liczba.ToString();
-char[] znaki = liczbaDoZnaku.ToArray();
+﻿int number = 12344154;
+    string numberToLetters = number.ToString();
+        char[] letters = numberToLetters.ToArray();
 
-int zera = 0;
-int jedynki = 0;
-int dwojki = 0;
-int trojki = 0;
-int czworki = 0;
-int piatki = 0;
-int szostki = 0;
-int siodemki = 0;
-int osemki = 0;
-int dziewiatki = 0;
-
-foreach (char c in znaki)
+int zero = 0;
+int ones = 0;
+int twos = 0;
+int threes = 0;
+int fours = 0;
+int fives = 0;
+int sixes = 0;
+int sevens = 0;
+int eights = 0;
+int nines = 0;
+foreach (char c in letters)
 {
     if (c == '0')
-    {
-        zera++;
-    }
-    else if (c == '1')
-    {
-        jedynki++;
-    }
-    else if (c == '2')
-    {
-        dwojki++;
-    }
-    else if (c == '3')
-    {
-        trojki++;
-    }
-    else if (c == '4')
-    {
-        czworki++;
-    }
-    else if (c == '5')
-    {
-        piatki++;
-    }
-    else if (c == '6')
-    {
-        szostki++;
-    }
-    else if (c == '7')
-    {
-        siodemki++;
-    }
-    else if (c == '8')
-    {
-        osemki++;
-    }
-    else if (c == '9')
-    {
-        dziewiatki++;
-    }
+{
+     zero++;
 }
-Console.WriteLine($"Twoja liczba to {liczba}, powtarzalość poszczególnych w niej cyfr to:");
-Console.WriteLine($"0: -> {zera}");
-Console.WriteLine($"1: -> {jedynki}");
-Console.WriteLine($"2: -> {dwojki}");
-Console.WriteLine($"3: -> {trojki}");
-Console.WriteLine($"4: -> {czworki}");
-Console.WriteLine($"5: -> {piatki}");
-Console.WriteLine($"6: -> {szostki}");
-Console.WriteLine($"7: -> {siodemki}");
-Console.WriteLine($"8: -> {osemki}");
-Console.WriteLine($"9: -> {dziewiatki}");
+    else if (c == '1')
+{
+     ones++;
+}
+    else if (c == '2')
+{
+     twos++;
+}
+    else if (c == '3')
+{
+     threes++;
+}
+    else if (c == '4')
+{
+     fours++;
+}
+    else if (c == '5')
+{
+     fives++;
+}
+    else if (c == '6')
+{
+     sixes++;
+}
+    else if (c == '7')
+{
+     sevens++;
+}
+    else if (c == '8')
+{
+     eights++;
+}
+    else if (c == '9')
+{
+     nines++;
+}
+}
+Console.WriteLine($"Twoja liczba: {number}, powtarzalość poszczególnych w niej cyfr to:");
+Console.WriteLine($"0: -> {zero}");
+Console.WriteLine($"1: -> {ones}");
+Console.WriteLine($"2: -> {twos}");
+Console.WriteLine($"3: -> {threes}");
+Console.WriteLine($"4: -> {fours}");
+Console.WriteLine($"5: -> {fives}");
+Console.WriteLine($"6: -> {sixes}");
+Console.WriteLine($"7: -> {sevens}");
+Console.WriteLine($"8: -> {eights}");
+Console.WriteLine($"9: -> {nines}");
