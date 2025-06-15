@@ -1,68 +1,29 @@
-﻿int number = 12344154;
-    string numberToLetters = number.ToString();
-        char[] letters = numberToLetters.ToArray();
+﻿using Wyzwanie21;
 
-int zero = 0;
-int ones = 0;
-int twos = 0;
-int threes = 0;
-int fours = 0;
-int fives = 0;
-int sixes = 0;
-int sevens = 0;
-int eights = 0;
-int nines = 0;
-foreach (char c in letters)
-{
-    if (c == '0')
-{
-     zero++;
-}
-    else if (c == '1')
-{
-     ones++;
-}
-    else if (c == '2')
-{
-     twos++;
-}
-    else if (c == '3')
-{
-     threes++;
-}
-    else if (c == '4')
-{
-     fours++;
-}
-    else if (c == '5')
-{
-     fives++;
-}
-    else if (c == '6')
-{
-     sixes++;
-}
-    else if (c == '7')
-{
-     sevens++;
-}
-    else if (c == '8')
-{
-     eights++;
-}
-    else if (c == '9')
-{
-     nines++;
-}
-}
-Console.WriteLine($"Twoja liczba: {number}, powtarzalość poszczególnych w niej cyfr to:");
-Console.WriteLine($"0: -> {zero}");
-Console.WriteLine($"1: -> {ones}");
-Console.WriteLine($"2: -> {twos}");
-Console.WriteLine($"3: -> {threes}");
-Console.WriteLine($"4: -> {fours}");
-Console.WriteLine($"5: -> {fives}");
-Console.WriteLine($"6: -> {sixes}");
-Console.WriteLine($"7: -> {sevens}");
-Console.WriteLine($"8: -> {eights}");
-Console.WriteLine($"9: -> {nines}");
+employee user1 = new employee("Alek", "Cezarski", 21);
+employee user2 = new employee("Barek", "Barski", 22);
+employee user3 = new employee("Czarek", "Alski", 23);
+
+user1.AddScore(2);
+user1.AddScore(3);
+user1.AddScore(4);
+user1.AddScore(5);
+user1.AddScore(6);
+var result1 = user1.Result;
+user2.AddScore(3);
+user2.AddScore(4);
+user2.AddScore(5);
+user2.AddScore(6);
+user2.AddScore(7);
+var result2 = user2.Result;
+user3.AddScore(4);
+user3.AddScore(5);
+user3.AddScore(6);
+user3.AddScore(7);
+user3.AddScore(8);
+var result3 = user3.Result;
+
+var users = new[] {user1, user2, user3};
+var results = new[] {result1, result2, result3};
+int win = Array.IndexOf(results, results.Max());
+Console.WriteLine("Najwyzszy wynik to: " + results[win] + ", Imie: " + users[win].Name + ", Nazwisko: " + users[win].Surname + ", Wiek: " + users[win].Age + ".");
