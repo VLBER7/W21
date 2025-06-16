@@ -15,7 +15,7 @@ namespace W21.TEST
             testEmployee.AddScore(-5);
 
             var result = testEmployee.Result;
-            //deklaracja oczekiwanej sumy
+            //deklaracja oczekiwanej sumy 
             Assert.AreEqual(-4, result);
         }
         [Test]
