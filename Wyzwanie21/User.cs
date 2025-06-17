@@ -1,11 +1,11 @@
 ﻿namespace Wyzwanie21
 {
  
-     public class employee
+     public class Employee
         {
             private List<int> score = new List<int>();
 
-            public employee(string name, string surname, int age)
+            public Employee(string name, string surname, int age)
             {
                 this.Name = name;
                 this.Surname = surname;

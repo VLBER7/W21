@@ -1,8 +1,8 @@
 ﻿using Wyzwanie21;
 
-employee user1 = new employee("Alek", "Cezarski", 21);
-employee user2 = new employee("Barek", "Barski", 22);
-employee user3 = new employee("Czarek", "Alski", 23);
+Employee user1 = new Employee("Alek", "Cezarski", 21);
+Employee user2 = new Employee("Barek", "Barski", 22);
+Employee user3 = new Employee("Czarek", "Alski", 23);
 
 user1.AddScore(2);
 user1.AddScore(3);
