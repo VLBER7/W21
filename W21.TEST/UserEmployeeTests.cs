@@ -5,7 +5,7 @@ namespace W21.TEST
 {
     public class Tests
     {
-       
+
         // arrange / act / assert - przygotowanie / przebieg / oczekiwianie 
         [Test]
         public void UserPointsSummaryTest()
@@ -21,7 +21,7 @@ namespace W21.TEST
         [Test]
         public void UserGetMoreOrLessThanZeroPoints()
         {
-            var testEmployee = new employee("Tester", "Testowski", 45);
+            var testEmployee = new employee("Checker", "Checkowski", 54);
             testEmployee.AddScore(-10);
             testEmployee.AddScore(9);
 
@@ -30,9 +30,9 @@ namespace W21.TEST
             Assert.AreNotEqual(0, result);
 
         }
-   
 
-        
+
+
 
     }
 }
