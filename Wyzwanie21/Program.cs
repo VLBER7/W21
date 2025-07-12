@@ -1,29 +1,20 @@
-﻿using Wyzwanie21;
+﻿using System.Net.Http.Headers;
+using System.Net.WebSockets;
+using Wyzwanie21;
 
-Employee user1 = new Employee("Alek", "Cezarski", 21);
-Employee user2 = new Employee("Barek", "Barski", 22);
-Employee user3 = new Employee("Czarek", "Alski", 23);
+var employee = new Employee("Roman", "Romanski");
+employee.AddGrade(4);
+employee.AddGrade(7);
+employee.AddGrade(5);
+var statisticks = employee.GetStatisticks();
 
-user1.AddScore(2);
-user1.AddScore(3);
-user1.AddScore(4);
-user1.AddScore(5);
-user1.AddScore(6);
-var result1 = user1.Result;
-user2.AddScore(3);
-user2.AddScore(4);
-user2.AddScore(5);
-user2.AddScore(6);
-user2.AddScore(7);
-var result2 = user2.Result;
-user3.AddScore(4);
-user3.AddScore(5);
-user3.AddScore(6);
-user3.AddScore(7);
-user3.AddScore(8);
-var result3 = user3.Result;
+Console.WriteLine($"Average: {statisticks.Average:N2}");
+Console.WriteLine($"Max: {statisticks.Max:N2}");
+Console.WriteLine($"Min: {statisticks.Min:N2}");
 
-var users = new[] {user1, user2, user3};
-var results = new[] {result1, result2, result3};
-int win = Array.IndexOf(results, results.Max());
-Console.WriteLine("Najwyzszy wynik to: " + results[win] + ", Imie: " + users[win].Name + ", Nazwisko: " + users[win].Surname + ", Wiek: " + users[win].Age + ".");
+SetSth(out statisticks);
+void SetSth(out Statisticks statisticks)
+{
+    statisticks = new Statisticks();
+
+}
