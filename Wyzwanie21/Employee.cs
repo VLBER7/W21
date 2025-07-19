@@ -1,4 +1,6 @@
-﻿namespace Wyzwanie21
+﻿using System.Security.AccessControl;
+
+namespace Wyzwanie21
 {
     public class Employee
     {
@@ -23,7 +25,7 @@
             }
             else
             {
-                Console.WriteLine("Grade must be between 0 and 100."); 
+                Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}."); 
             }
         }
         public void AddGrade(string grade)
@@ -35,7 +37,7 @@
             }
             else
             {
-                Console.WriteLine("String is not float.");
+                Console.WriteLine($"String, to nie float - zmien swoja ocene z '{grade}' na jakas cyfre lub wartosc liczbowa!");
             }
         }
         public void AddGrade(decimal grade)
@@ -52,6 +54,7 @@
         {
             float ValueInFloat = (float)grade;
             this.AddGrade(ValueInFloat);
+        
         }
         public Statisticks GetStatisticks()
         {
@@ -60,40 +63,75 @@
             statisticks.Max = float.MinValue;
             statisticks.Min = float.MaxValue;
 
-
+            List<string> formattedGrades = new List<string>();
             foreach (var grade in this.grades)
             //break
             //continue
             //goto
+
             {
-                if (grade >= 0)
+                if (grade >= 0 && grade <= 100)
                 {
                     statisticks.Max = Math.Max(statisticks.Max, grade);
                     statisticks.Min = Math.Min(statisticks.Min, grade);
                     statisticks.Average += grade;
                 }
-                Console.WriteLine($"Grade basic: {grade}");
+                formattedGrades.Add(grade.ToString());
             }
-            statisticks.Average = statisticks.Average /= this.grades.Count;
+
+            if (this.grades.Count > 0)
+            {
+                statisticks.Average /= this.grades.Count;
+            }
+            else
+            {
+                statisticks.Average = 0;
+            }
+
+            Console.Write("Wszystkie oceny to: ");
+            Console.WriteLine(string.Join(", ", formattedGrades));
+
             return statisticks;
         }
         public Statisticks GetStatisticksWithForEach()
         {
             var statisticks = new Statisticks();
             statisticks.Average = 0;
-            statisticks.Max = float.MinValue;
-            statisticks.Min = float.MaxValue;
+            if (this.grades.Count == 0)
+            {
+                Console.WriteLine("Brak ocen do obliczen.");
+                statisticks.Max = float.MinValue;
+                statisticks.Min = float.MaxValue;
+                return statisticks;
+            }
+            float? firstValidGrade = null;
+            foreach (var X in this.grades)
+            {
+                if (X >= 0 && X <= 5)
+                {
+                    statisticks.Max = X;
+                    statisticks.Min = X;
+                    firstValidGrade = X;
+                    break;
+                }
+            }
+            if (!firstValidGrade.HasValue)
+            { Console.WriteLine("Brak ocen z zakresu 0-5."); return statisticks; }
+            
+            int validGradesCount = 0;
+            Console.WriteLine("Wyniki dla petli foreach z zakresu 0-5:");
             foreach (var grade in this.grades)
             {
-                if (grade >= 0)
+                if (grade >=0 && grade <= 5) 
                 {
                     statisticks.Max = Math.Max(statisticks.Max, grade);
                     statisticks.Min = Math.Min(statisticks.Min, grade);
                     statisticks.Average += grade;
+                    validGradesCount++; 
+                    Console.WriteLine($"{grade}"); 
                 }
-                Console.WriteLine($"Grade with foreach: {grade}");
+            
             }
-            statisticks.Average /= this.grades.Count;
             return statisticks;
         }
         public Statisticks GetStatisticksWithFor()
@@ -102,7 +140,7 @@
 
             if (this.grades.Count == 0)
             {
-                Console.WriteLine("Brak ocen do obliczeń.");
+                Console.WriteLine("Brak ocen do obliczen.");
                 statisticks.Average = 0;
                 statisticks.Max = float.MinValue;
                 statisticks.Min = float.MaxValue;
@@ -113,7 +151,7 @@
             statisticks.Max = float.MinValue;
             statisticks.Min = float.MaxValue;
 
-            for (int i = 0; i < this.grades.Count; i++)
+            for (int i = 0; i < this.grades.Count; i++ )
             {
                 float grade = this.grades[i];
                 statisticks.Max = Math.Max(statisticks.Max, grade);
@@ -122,38 +160,12 @@
             }
 
             statisticks.Average /= this.grades.Count;
-
-            // Po wyjściu z pętli wyświetlaj wyniki
-            Console.WriteLine($"--- Wyniki dla pętli 'for' ---");
-            Console.WriteLine($"Średnia: {statisticks.Average:N2}");
+            Console.WriteLine($"Wyniki dla petli for:");
+            Console.WriteLine($"Srednia: {statisticks.Average:N2}");
             Console.WriteLine($"Maksymalna: {statisticks.Max}");
             Console.WriteLine($"Minimalna: {statisticks.Min}");
-            Console.WriteLine($"------------------------------");
 
             return statisticks;
-        }
-        public Statisticks GetStatisticksWithDoWhile()
-        {
-            var statisticks = new Statisticks();
-            statisticks.Average = 0;
-            statisticks.Max = float.MinValue;
-            statisticks.Min = float.MaxValue;
-            int i = 0;
-            do
-            {
-                if (this.grades[i] < 0)
-                {
-                    statisticks.Max = Math.Max(statisticks.Max, this.grades[i]);
-                    statisticks.Min = Math.Min(statisticks.Min, this.grades[i]);
-                    statisticks.Average += this.grades[i];
-                }
-                Console.WriteLine($"Grade with DoWhile: {this.grades[i]}");
-                i++;
-
-            } while (i < this.grades.Count);
-            statisticks.Average /= this.grades.Count;
-            return statisticks;
-
         }
         public Statisticks GetStatisticksWithWhile()
         {
@@ -164,13 +176,13 @@
             int i = 0;
             while (i < this.grades.Count)
             {
-                if (this.grades[i] < 0)
+                if (this.grades[i] <= 0 || this.grades[i] >= 100)
                 {
                     statisticks.Max = Math.Max(statisticks.Max, this.grades[i]);
                     statisticks.Min = Math.Min(statisticks.Min, this.grades[i]);
                     statisticks.Average += this.grades[i];
                 }
-                Console.WriteLine($"Grade with while: {this.grades[i]}");
+                Console.WriteLine($"Pętla WithWile czyli wszystko od 0 do 100: {this.grades[i]}");
                 i++;
             }
             statisticks.Average /= this.grades.Count;
