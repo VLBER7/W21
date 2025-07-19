@@ -182,7 +182,7 @@ namespace Wyzwanie21
                     statisticks.Min = Math.Min(statisticks.Min, this.grades[i]);
                     statisticks.Average += this.grades[i];
                 }
-                Console.WriteLine($"Pętla WithWile czyli wszystko od 0 do 100: {this.grades[i]}");
+                Console.WriteLine($"Petla WithWile czyli wszystko od 0 do 100: {this.grades[i]}");
                 i++;
             }
             statisticks.Average /= this.grades.Count;
