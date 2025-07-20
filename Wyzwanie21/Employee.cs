@@ -25,7 +25,7 @@ namespace Wyzwanie21
             }
             else
             {
-                Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}."); 
+                Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
             }
         }
         public void AddGrade(string grade)
@@ -47,21 +47,21 @@ namespace Wyzwanie21
         }
         public void AddGrade(double grade)
         {
-           float ValueInFloat = (float)grade;
-           this.AddGrade(ValueInFloat);
+            float ValueInFloat = (float)grade;
+            this.AddGrade(ValueInFloat);
         }
         public void AddGrade(int grade)
         {
             float ValueInFloat = (float)grade;
             this.AddGrade(ValueInFloat);
-        
+
         }
-        public Statisticks GetStatisticks()
+        public Statistics GetStatisticks()
         {
-            var statisticks = new Statisticks();
-            statisticks.Average = 0;
-            statisticks.Max = float.MinValue;
-            statisticks.Min = float.MaxValue;
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
 
             List<string> formattedGrades = new List<string>();
             foreach (var grade in this.grades)
@@ -72,30 +72,30 @@ namespace Wyzwanie21
             {
                 if (grade >= 0 && grade <= 100)
                 {
-                    statisticks.Max = Math.Max(statisticks.Max, grade);
-                    statisticks.Min = Math.Min(statisticks.Min, grade);
-                    statisticks.Average += grade;
+                    statistics.Max = Math.Max(statistics.Max, grade);
+                    statistics.Min = Math.Min(statistics.Min, grade);
+                    statistics.Average += grade;
                 }
                 formattedGrades.Add(grade.ToString());
             }
 
             if (this.grades.Count > 0)
             {
-                statisticks.Average /= this.grades.Count;
+                statistics.Average /= this.grades.Count;
             }
             else
             {
-                statisticks.Average = 0;
+                statistics.Average = 0;
             }
 
             Console.Write("Wszystkie oceny to: ");
             Console.WriteLine(string.Join(", ", formattedGrades));
 
-            return statisticks;
+            return statistics;
         }
-        public Statisticks GetStatisticksWithForEach()
+        public Statistics GetStatisticksWithForEach()
         {
-            var statisticks = new Statisticks();
+            var statisticks = new Statistics();
             statisticks.Average = 0;
             if (this.grades.Count == 0)
             {
@@ -117,26 +117,26 @@ namespace Wyzwanie21
             }
             if (!firstValidGrade.HasValue)
             { Console.WriteLine("Brak ocen z zakresu 0-5."); return statisticks; }
-            
+
             int validGradesCount = 0;
             Console.WriteLine("Wyniki dla petli foreach z zakresu 0-5:");
             foreach (var grade in this.grades)
             {
-                if (grade >=0 && grade <= 5) 
+                if (grade >= 0 && grade <= 5)
                 {
                     statisticks.Max = Math.Max(statisticks.Max, grade);
                     statisticks.Min = Math.Min(statisticks.Min, grade);
                     statisticks.Average += grade;
-                    validGradesCount++; 
-                    Console.WriteLine($"{grade}"); 
+                    validGradesCount++;
+                    Console.WriteLine($"{grade}");
                 }
-            
+
             }
             return statisticks;
         }
-        public Statisticks GetStatisticksWithFor()
+        public Statistics GetStatisticksWithFor()
         {
-            var statisticks = new Statisticks();
+            var statisticks = new Statistics();
 
             if (this.grades.Count == 0)
             {
@@ -151,7 +151,7 @@ namespace Wyzwanie21
             statisticks.Max = float.MinValue;
             statisticks.Min = float.MaxValue;
 
-            for (int i = 0; i < this.grades.Count; i++ )
+            for (int i = 0; i < this.grades.Count; i++)
             {
                 float grade = this.grades[i];
                 statisticks.Max = Math.Max(statisticks.Max, grade);
@@ -167,9 +167,9 @@ namespace Wyzwanie21
 
             return statisticks;
         }
-        public Statisticks GetStatisticksWithWhile()
+        public Statistics GetStatisticksWithWhile()
         {
-            var statisticks = new Statisticks();
+            var statisticks = new Statistics();
             statisticks.Average = 0;
             statisticks.Max = float.MinValue;
             statisticks.Min = float.MaxValue;
@@ -190,5 +190,5 @@ namespace Wyzwanie21
         }
     }
 }
-    
+
 

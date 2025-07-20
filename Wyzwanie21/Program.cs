@@ -14,6 +14,7 @@ employee.AddGrade(561);
 employee.AddGrade(4.5f);
 employee.AddGrade(6.99f);
 employee.AddGrade(5.55555555555f);
+employee.AddGrade(5.55555555555f);
 employee.AddGrade(4);
 employee.AddGrade(101);
 var statisticks = employee.GetStatisticks();

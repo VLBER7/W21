@@ -1,7 +1,7 @@
 ﻿
 namespace Wyzwanie21
 {
-    public class Statisticks
+    public class Statistics
     {
         public float Min { get; set; }
         public float Max { get; set; }
