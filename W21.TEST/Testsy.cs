@@ -5,44 +5,39 @@ namespace W21.TEST;
 public class Testsy
 {
     [Test]
-    public void TestAverageValueCheck()
+    public void AverageCharCheck()
     {
-        var employee = new Employee("Roman", "Romanski");
+        var employee = new Employee ("Jan", "Kowalski");
 
-        employee.AddGrade(4);
-        employee.AddGrade(7);
-        employee.AddGrade(5);
+        employee.AddGrade('A');
+        employee.AddGrade('a');
+        employee.AddGrade('a');
+        employee.AddGrade('a');
+        var stats = employee.GetStatistics();
 
-        var statisticks = employee.GetStatisticks();
+        Assert.AreEqual(100, stats.Average);
+    }
 
-        Assert.That(statisticks.Average, Is.EqualTo(5.33f).Within(0.01f));
+    [Test]
+    public void CharFromAtoE()
+    {
+        var employee = new Employee("Jan", "Kowalski");
+
+        employee.AddGrade('X');
+        employee.AddGrade('C');
+        var stats = employee.GetStatistics();
+
+        Assert.AreEqual(60, stats.Average);
     }
     [Test]
-    public void TestMinValueCheck()
+    public void CharPlusNumber()
     {
-        var employee = new Employee("Roman", "Romanski");
+        var employee = new Employee("Jan", "Kowalski");
 
-        employee.AddGrade(4.1f);
-        employee.AddGrade(7);
-        employee.AddGrade(5);
+        employee.AddGrade('B');
+        employee.AddGrade(80);
+        var stats = employee.GetStatistics();
 
-        var statisticks = employee.GetStatisticks();
-
-        Assert.That(statisticks.Min, Is.EqualTo(4).Within(0.1f));
-    }
-    [Test]
-    public void TestMaxValueCheck()
-    {
-        var employee = new Employee("Roman", "Romanski");
-
-        employee.AddGrade(4);
-        employee.AddGrade(6.99f);
-        employee.AddGrade(5);
-
-        var statisticks = employee.GetStatisticks();
-
-        Assert.That(statisticks.Max, Is.EqualTo(7).Within(0.1f));
+        Assert.AreEqual(80, stats.Average);
     }
 }
-
-
