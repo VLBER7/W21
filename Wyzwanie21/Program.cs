@@ -7,6 +7,7 @@ Console.WriteLine();
 
 var employee = new Employee("Roman", "Romanski");
 
+
 while (true)
 {
     Console.WriteLine("Podaj ocenę dla pracownika (liczba od 0 do 100, lub litera A-E). Aby zakończyć, wpisz 'q'.");
@@ -17,24 +18,31 @@ while (true)
         break;
     }
 
-    if (string.IsNullOrEmpty(input))
+    if (string.IsNullOrWhiteSpace(input))
     {
         Console.WriteLine("Nie podano żadnej oceny. Spróbuj ponownie.");
         continue;
     }
 
-    if (float.TryParse(input, out float nrGrade))
+    try
     {
-        employee.AddGrade(nrGrade);
+        if (float.TryParse(input, out float nrGrade))
+        {
+            employee.AddGrade(nrGrade);
+        }
+        else if (input.Length == 1)
+        {
+            char charGrade = input[0];
+            employee.AddGrade(charGrade);
+        }
+        else
+        {
+            Console.WriteLine($"Nieznany format oceny '{input}'. Wpisz liczbę lub literę A-E.");
+        }
     }
-    else if (input.Length == 1)
+    catch (Exception e)
     {
-        char charGrade = input[0];
-        employee.AddGrade(charGrade);
-    }
-    else
-    {
-        Console.WriteLine($"Nieznany format oceny '{input}'. Wpisz liczbę lub literę A-E.");
+        Console.WriteLine($"Wyjątek CATCH: {e.Message}");
     }
 }
 

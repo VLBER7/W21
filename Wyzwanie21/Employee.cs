@@ -4,6 +4,9 @@ namespace Wyzwanie21
 {
     public class Employee
     {
+
+        private const char sex = 'M'; 
+
         private List<float> grades = new List<float>();
 
         public Employee(string name, string surname)
@@ -22,7 +25,8 @@ namespace Wyzwanie21
             }
             else
             {
-                Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
+                throw new Exception("Ocena musi byc w zakresie od 0 do 100.");
+                //Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
             }
         }
         public void AddGrade(string grade)
@@ -33,7 +37,8 @@ namespace Wyzwanie21
             }
             else
             {
-                Console.WriteLine($"String, to nie float - zmien swoja ocene z '{grade}' na jakas cyfre lub wartosc liczbowa!");
+                throw new Exception($"String, to nie float - zmien swoja ocene z {grade} na jakas cyfre lub wartosc liczbowa!");
+                //Console.WriteLine($"String, to nie float - zmien swoja ocene z '{grade}' na jakas cyfre lub wartosc liczbowa!");
             }
         }
 
@@ -57,8 +62,9 @@ namespace Wyzwanie21
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
-                    break;
+                    //Console.WriteLine($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
+                    throw new Exception($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
+                   
             }
         }
 
