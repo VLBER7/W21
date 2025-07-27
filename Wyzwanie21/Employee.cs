@@ -29,18 +29,18 @@ namespace Wyzwanie21
                 //Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
             }
         }
-        public void AddGrade(string grade)
-        {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else
-            {
-                throw new Exception($"String, to nie float - zmien swoja ocene z {grade} na jakas cyfre lub wartosc liczbowa!");
-                //Console.WriteLine($"String, to nie float - zmien swoja ocene z '{grade}' na jakas cyfre lub wartosc liczbowa!");
-            }
-        }
+        //public void AddGrade(string grade)
+        //{
+        //    if (float.TryParse(grade, out float result))
+        //    {
+        //        this.AddGrade(result);
+        //    }
+        //    else
+        //    {
+        //        throw new Exception($"String, to nie float - zmien swoja ocene z {grade} na jakas cyfre lub wartosc liczbowa!");
+        //        Console.WriteLine($"String, to nie float - zmien swoja ocene z '{grade}' na jakas cyfre lub wartosc liczbowa!");
+        //    }
+        //}
 
         public void AddGrade(char grade)
         {
