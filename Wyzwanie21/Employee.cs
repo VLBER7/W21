@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-
-namespace Wyzwanie21
+﻿namespace Wyzwanie21
 {
     public class Employee : Person
     {
@@ -8,9 +6,9 @@ namespace Wyzwanie21
 
 
         public Employee(string name, string surname, string sex)
-            : base(name, surname, sex) 
+            : base(name, surname, sex)
         {
-  
+
         }
 
         public void AddGrade(float grade)

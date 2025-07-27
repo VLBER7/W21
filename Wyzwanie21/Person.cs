@@ -1,9 +1,7 @@
-﻿
-namespace Wyzwanie21
+﻿namespace Wyzwanie21
 {
-    public abstract class Person : System.Object
+    public abstract class Person
     {
-       
         public Person(string name, string surname, string sex)
         {
             this.Name = name;
@@ -12,6 +10,6 @@ namespace Wyzwanie21
         }
         public string Name { get; private set; }
         public string Surname { get; private set; }
-        public string Sex { get; private set; } 
+        public string Sex { get; private set; }
     }
 }
