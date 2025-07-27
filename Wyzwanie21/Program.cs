@@ -5,7 +5,8 @@ Console.WriteLine("Witam serdecznie w programie oceny pracowników");
 Console.WriteLine("==========================================================");
 Console.WriteLine();
 
-var employee = new Employee("Roman", "Romanski");
+var employee = new Employee("Roman", "Romanski", "M");
+employee.ToString();
 
 
 while (true)
@@ -50,7 +51,7 @@ Console.Write("Wszystkie oceny to: ");
 Console.WriteLine(employee.GetAllGradesFormatted());
 
 var statistics = employee.GetStatistics();
-Console.WriteLine($"Statystyki dla pracownika {employee.Name} {employee.Surname}:");
+Console.WriteLine($"Statystyki dla pracownika o imieniu: {employee.Name}, nazwisku: {employee.Surname} oraz zadeklarowanej płci: {employee.Sex}:");
 Console.WriteLine($"Minimalna ocena: {statistics.Min}");
 Console.WriteLine($"Maksymalna ocena: {statistics.Max}");
 Console.WriteLine($"Srednia z ocen: {statistics.Average}");
