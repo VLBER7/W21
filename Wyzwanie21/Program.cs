@@ -6,8 +6,6 @@ Console.WriteLine("==========================================================");
 Console.WriteLine();
 
 var employee = new Employee("Roman", "Romanski", "M");
-employee.ToString();
-
 
 while (true)
 {
