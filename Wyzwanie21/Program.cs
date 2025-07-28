@@ -23,14 +23,24 @@ while (true)
         continue;
     }
 
+    bool gradeAdded = false;
+
     if (float.TryParse(input, out float nrGrade))
     {
-        employee.AddGrade(nrGrade);
+        gradeAdded = employee.AddGrade(nrGrade);
+        if (!gradeAdded)
+        {
+            Console.WriteLine($"Ocena musi być w zakresie od 0 do 100, a twoja to {nrGrade}.");
+        }
     }
     else if (input.Length == 1)
     {
         char charGrade = input[0];
-        employee.AddGrade(charGrade);
+        gradeAdded = employee.AddGrade(charGrade);
+        if (!gradeAdded)
+        {
+            Console.WriteLine($"Nieznana ocena: {charGrade}. Wpisz ocenę A / B / C / D / E.");
+        }
     }
     else
     {

@@ -9,40 +9,40 @@
         {
         }
 
-        public void AddGrade(float grade)
+        public bool AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
+                return true;
             }
             else
             {
-                Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
+                return false;
             }
         }
 
-        public void AddGrade(char grade)
+        public bool AddGrade(char grade)
         {
             switch (char.ToUpper(grade))
             {
                 case 'A':
                     this.grades.Add(100);
-                    break;
+                    return true;
                 case 'B':
                     this.grades.Add(80);
-                    break;
+                    return true;
                 case 'C':
                     this.grades.Add(60);
-                    break;
+                    return true;
                 case 'D':
                     this.grades.Add(40);
-                    break;
+                    return true;
                 case 'E':
                     this.grades.Add(20);
-                    break;
+                    return true;
                 default:
-                    Console.WriteLine($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
-                    break;
+                    return false;
             }
         }
 
