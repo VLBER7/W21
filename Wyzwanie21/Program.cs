@@ -23,25 +23,18 @@ while (true)
         continue;
     }
 
-    try
+    if (float.TryParse(input, out float nrGrade))
     {
-        if (float.TryParse(input, out float nrGrade))
-        {
-            employee.AddGrade(nrGrade);
-        }
-        else if (input.Length == 1)
-        {
-            char charGrade = input[0];
-            employee.AddGrade(charGrade);
-        }
-        else
-        {
-            Console.WriteLine($"Nieznany format oceny '{input}'. Wpisz liczbę lub literę A-E.");
-        }
+        employee.AddGrade(nrGrade);
     }
-    catch (Exception e)
+    else if (input.Length == 1)
     {
-        Console.WriteLine($"Wyjątek CATCH: {e.Message}");
+        char charGrade = input[0];
+        employee.AddGrade(charGrade);
+    }
+    else
+    {
+        Console.WriteLine($"Nieznany format oceny '{input}'. Wpisz liczbę lub literę A-E.");
     }
 }
 
@@ -49,7 +42,7 @@ Console.Write("Wszystkie oceny to: ");
 Console.WriteLine(employee.GetAllGradesFormatted());
 
 var statistics = employee.GetStatistics();
-Console.WriteLine($"Statystyki dla pracownika o imieniu: {employee.Name}, nazwisku: {employee.Surname} oraz zadeklarowanej płci: {employee.Sex}:");
+Console.WriteLine($"Statystyki dla pracownika o imieniu: {employee.Name}, nazwisku: {employee.Surname} oraz zadeklarowanej płci: {employee.Sex}");
 Console.WriteLine($"Minimalna ocena: {statistics.Min}");
 Console.WriteLine($"Maksymalna ocena: {statistics.Max}");
 Console.WriteLine($"Srednia z ocen: {statistics.Average}");

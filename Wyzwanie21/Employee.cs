@@ -4,11 +4,9 @@
     {
         private List<float> grades = new List<float>();
 
-
         public Employee(string name, string surname, string sex)
             : base(name, surname, sex)
         {
-
         }
 
         public void AddGrade(float grade)
@@ -19,8 +17,7 @@
             }
             else
             {
-                throw new Exception("Ocena musi byc w zakresie od 0 do 100.");
-                //Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
+                Console.WriteLine($"Ocena musi byc w zakresie od 0 do 100, a twoja to {grade}.");
             }
         }
 
@@ -44,9 +41,8 @@
                     this.grades.Add(20);
                     break;
                 default:
-                    //Console.WriteLine($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
-                    throw new Exception($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
-
+                    Console.WriteLine($"Nieznana ocena: {grade}, wpisz ocene A / B / C / D / E");
+                    break;
             }
         }
 
