@@ -7,6 +7,16 @@ Console.WriteLine();
 
 var employee = new Employee("Roman", "Romanski", "M");
 
+try
+{
+    Employee emp = null;
+    var name = emp.Surname;
+}
+catch(Exception)
+{
+    Console.WriteLine("Błąd - taka sytuacja nie powinna mieć miejsca, ponieważ obiekt emp jest null.");
+}
+
 while (true)
 {
     Console.WriteLine("Podaj ocenę dla pracownika (liczba od 0 do 100, lub litera A-E). Aby zakończyć, wpisz 'q'.");

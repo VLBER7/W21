@@ -1,13 +1,19 @@
 ﻿namespace Wyzwanie21
 {
-    public class Employee : Person
+    public class Employee : iEmployee
     {
         private List<float> grades = new List<float>();
 
         public Employee(string name, string surname, string sex)
-            : base(name, surname, sex)
         {
+            this.Name = name;
+            this.Surname = surname;
+            this.Sex = sex;
         }
+
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+        public string Sex { get; private set; }
 
         public bool AddGrade(float grade)
         {
