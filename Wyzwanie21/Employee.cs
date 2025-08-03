@@ -56,8 +56,8 @@
         {
             var statistics = new Statistics();
             statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
+            statistics.Max = 0;
+            statistics.Min = 0;
 
             if (this.grades.Any())
             {
@@ -80,8 +80,11 @@
                 case var a when a >= 20:
                     statistics.AverageLetter = 'D';
                     break;
-                default:
+                case var a when a > 0:
                     statistics.AverageLetter = 'E';
+                    break;
+                default:
+                    statistics.AverageLetter = '0';
                     break;
             }
 

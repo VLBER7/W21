@@ -7,15 +7,8 @@ Console.WriteLine();
 
 var employee = new Employee("Roman", "Romanski", "M");
 
-try
-{
-    Employee emp = null;
-    var name = emp.Surname;
-}
-catch(Exception)
-{
-    Console.WriteLine("Błąd - taka sytuacja nie powinna mieć miejsca, ponieważ obiekt emp jest null.");
-}
+Console.WriteLine($"Pracownik o imieniu: {employee.Name}, nazwisku: {employee.Surname} oraz płci: {employee.Sex} został utworzony.");
+Console.WriteLine();
 
 while (true)
 {
@@ -54,10 +47,12 @@ while (true)
     }
     else
     {
-        Console.WriteLine($"Nieznany format oceny '{input}'. Wpisz liczbę lub literę A-E.");
+        Console.WriteLine($"Nieznany format oceny '{input}'. Wpisz liczbę lub literę A-E");
     }
 }
 
+Console.WriteLine();
+Console.WriteLine("Podsumowanie ocen pracownika:");
 Console.Write("Wszystkie oceny to: ");
 Console.WriteLine(employee.GetAllGradesFormatted());
 
@@ -66,4 +61,4 @@ Console.WriteLine($"Statystyki dla pracownika o imieniu: {employee.Name}, nazwis
 Console.WriteLine($"Minimalna ocena: {statistics.Min}");
 Console.WriteLine($"Maksymalna ocena: {statistics.Max}");
 Console.WriteLine($"Srednia z ocen: {statistics.Average}");
-Console.WriteLine($"Ocena literowa: {statistics.AverageLetter}");
+Console.WriteLine($"Ocena w sklai literowej to {statistics.AverageLetter} przy czym: A>=80 / B>=60 / C>=40 / D>=20 / E>=1 / ew. 0=0");
