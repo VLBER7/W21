@@ -5,7 +5,7 @@ Console.WriteLine("Witam serdecznie w programie oceny pracowników");
 Console.WriteLine("==========================================================");
 Console.WriteLine();
 
-var employee = new Employee("Roman", "Romanski", "M");
+var employee = new Employee ("Roman", "Romanski", "M");
 
 Console.WriteLine($"Pracownik o imieniu: {employee.Name}, nazwisku: {employee.Surname} oraz płci: {employee.Sex} został utworzony.");
 Console.WriteLine();
@@ -30,11 +30,8 @@ while (true)
 
     if (float.TryParse(input, out float nrGrade))
     {
-        gradeAdded = employee.AddGrade(nrGrade);
-        if (!gradeAdded)
-        {
-            Console.WriteLine($"Ocena musi być w zakresie od 0 do 100, a twoja to {nrGrade}.");
-        }
+        employee.AddGrade(nrGrade);
+        gradeAdded = true;
     }
     else if (input.Length == 1)
     {

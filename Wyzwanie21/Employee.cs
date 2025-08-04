@@ -27,7 +27,21 @@
                 return false;
             }
         }
-
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else if (grade.Length == 1 && char.IsLetter(grade[0]))
+            {
+                this.AddGrade(grade[0]);
+            }
+            else
+            {
+                throw new ArgumentException("Cos sie tu nie zgadza!");
+            }
+        }
         public bool AddGrade(char grade)
         {
             switch (char.ToUpper(grade))
@@ -90,6 +104,7 @@
 
             return statistics;
         }
+
 
         public string GetAllGradesFormatted()
         {

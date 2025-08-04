@@ -5,7 +5,8 @@
         string Name { get; }
         string Surname { get; }
         string Sex { get; }
+        void AddGrade(string grade);
         Statistics GetStatistics();
 
     }
-}
+} 

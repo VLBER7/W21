@@ -1,5 +1,4 @@
-﻿
-namespace Wyzwanie21
+﻿namespace Wyzwanie21
 {
     public class Statistics
     {
@@ -7,6 +6,6 @@ namespace Wyzwanie21
         public float Max { get; set; }
         public float Average { get; set; }
         public char AverageLetter { get; set; }
-
+        public string AverageNumericString { get; set; } = string.Empty;
     }
 }
